@@ -1,0 +1,8 @@
+Quick-n-dirty text based socket stream multiplexer
+
+Usage:
+./multiplexer.py server1 server1port server2 server2port [server3 server3port] ...
+
+The multiplexer reads from all the sources and prints to STDOUT all of their inputs in an orderly fashion, i.e., it prints in a line by a line basis, and if there is no line separator in a transmittion it buffers it until there is one.
+
+There is no much of an error handling: if a source (server) crashes or disconnects, the multiplexer will continue reading from the other but it won't exit if all the sources stop sending data/disconnect.
